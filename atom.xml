@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://joegyx.github.io/"/>
-  <updated>2017-03-04T00:47:41.666Z</updated>
+  <updated>2017-03-04T15:31:34.412Z</updated>
   <id>http://joegyx.github.io/</id>
   
   <author>
@@ -14,6 +14,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从古典变分法到分析力学</title>
+    <link href="http://joegyx.github.io/2017/03/04/bianfenfa/"/>
+    <id>http://joegyx.github.io/2017/03/04/bianfenfa/</id>
+    <published>2017-03-04T09:53:03.000Z</published>
+    <updated>2017-03-04T15:31:34.412Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>记得上学期因为对变分不理解，学理力的时候对拉格朗日方程学的一直云里雾里，现在把变分工具补一下重新审视分析力学。</p>
+</blockquote>
+<h2 id="泛函，变分与最速降线"><a href="#泛函，变分与最速降线" class="headerlink" title="泛函，变分与最速降线"></a>泛函，变分与最速降线</h2><hr>
+<h3 id="泛函"><a href="#泛函" class="headerlink" title="泛函"></a>泛函</h3><p>函数是数域到数域的映射，而泛函是一种特殊的函数，是函数域到数域的映射。也可以说，函数是”你给他一个数，他给你一个数”，而泛函是”你给他一个函数，他给你一个数”。<br>比如在空间中有a点和b点，从a点到b点有无数条路径，则从a到b所用时间就是一个泛函，每条路径就是一个函数，每条路径对应一个所用时间的值。</p>
+<h3 id="泛函的极值与变分"><a href="#泛函的极值与变分" class="headerlink" title="泛函的极值与变分"></a>泛函的极值与变分</h3><p>我们求泛函的极值，就是说找到一类函数，使得对应泛函取得极值。同样的我们想到求解微分方程也是相似的问题：找到一类函数，使得对应微分方程成立。所以我们可以构造出与一个泛函极值相对应的解函数相同的微分方程。<br>对于一元函数<br>$$y=f(x)$$<br>我们知道，当一阶导数为零时，即<br>$$\frac{dy}{dx}=0$$<br>时，函数取得极值。对应的对于一元函数的泛函<br>$$J=\int_{x_1}^{x_2}L(x,y,y’)dx$$<br>其变分为零时，即<br>$$\delta J=0$$<br>时，J取得极值，这就是我们要找的微分方程，也叫欧拉方程，其解为一元函数。</p>
+<h3 id="最简单泛函变分的欧拉方程"><a href="#最简单泛函变分的欧拉方程" class="headerlink" title="最简单泛函变分的欧拉方程"></a>最简单泛函变分的欧拉方程</h3><p>对于一元函数的泛函<br>$$J=\int_{x_1}^{x_2}L(x,y,y’)dx，y(x_1)=y_1，y(x_2)=y_2$$<br>其变分对应的欧拉方程为<br>$$F_y-\frac{d}{dx}F_y’=0，y(x_1)=y_1，y(x_2)=y_2$$<br>这里不做证明。</p>
+<h3 id="最速降线问题"><a href="#最速降线问题" class="headerlink" title="最速降线问题"></a>最速降线问题</h3><blockquote>
+<p>在一个斜面上，摆两条轨道，一条是直线，一条是曲线，起点高度以及终点高度都相同。两个质量、大小一样的小球同时从起点向下滑落，曲线的小球反而先到终点。这是由于曲线轨道上的小球先达到最高速度，所以先到达。然而，两点之间的直线只有一条，曲线却有无数条，那么，哪一条才是最快的呢？伽利略于1630年提出了这个问题，当时他认为这条线应该是一条弧线，可是后来人们发现这个答案是错误的。1696年，瑞士数学家约翰·伯努利解决了这个问题，他还拿这个问题向其他数学家提出了公开挑战。牛顿、莱布尼兹、洛比达以及雅克布·伯努利等解决了这个问题。这条最速降线就是一条摆线，也叫旋轮线。</p>
+</blockquote>
+<p>在学习以上内容之后，我们就可以运用变分法解决这个问题了。<br>边界条件：<br>$$y(0)=0，y(x1)=y1$$<br>动能定理：<br>$$\frac{1}{2}mv^2=mgy\rightarrow v=\sqrt{2gy}$$<br>弧积分与微积分处理：<br>$$v=\frac{ds}{dt}=\frac{ds}{dx}\frac{dx}{dt}=\sqrt{1+y’^2}\frac{dx}{dt}，T=\int_{0}^{x_1}\sqrt{\frac{1+y’^2}{2gy}}dx$$<br>注意到T就是y=y(x)的泛函，我们要求使T取最小值的曲线y。<br>带入欧拉方程并积分：<br>$$\sqrt{\frac{1+y’^2}{2gy}}-\frac{y’^2}{\sqrt{2gy(1+y’^2)}}=c_1$$<br>令<br>$$c=\frac{1}{2gc_1^2}，y’=cot\theta$$<br>得到：<br>$$y=\frac{c}{1+y’^2}=\frac{c}{2}(1-cos2\theta)$$<br>又因为：<br>$$dx=\frac{dt}{y’}=c(1-cos2\theta)d\theta\rightarrow x=\frac{c}{2}(2\theta-sin2\theta)+c_2$$<br>带入边界条件，并做处理,令：<br>$$t=2\theta\rightarrow x(t)=\frac{c}{2}(t-sint)，y(t)=\frac c2(1-cost)$$<br>得到滚轮线。</p>
+<h2 id="分析力学的最小作用量原理"><a href="#分析力学的最小作用量原理" class="headerlink" title="分析力学的最小作用量原理"></a>分析力学的最小作用量原理</h2><hr>
+<h3 id="最小作用量原理与拉格朗日方程"><a href="#最小作用量原理与拉格朗日方程" class="headerlink" title="最小作用量原理与拉格朗日方程"></a>最小作用量原理与拉格朗日方程</h3><p>一个力学系统可以由所有质点的位置和速度与时间的函数表示<br>$$L(q1,q2,\cdots,q1’,q2’,…,t)$$<br>我们称<br>$$S=\int_{t_1}^{t_2}L(q,q’,t)dt$$<br>为作用量，L为拉格朗日函数，而系统的运动满足在微小的一段时间内，作用量取最小值。即<br>$$\delta S=0$$<br>作用量的变分等于零，由欧拉公式得到<br>$$\frac{d}{dx}\frac{\partial L}{\partial q’}-\frac{\partial L}{\partial q}=0$$<br>在分析力学中称之为拉格朗日方程。经过力学和数学证明，拉格朗日函数<br>$$L=\frac{1}{2}mv^2-U(r,t)$$<br>证明见《朗道力学》4-9页。<br>观察发现如果知道某力学系统的初始位置和速度作为初始条件，那么我们就能通过最小作用量原理或拉格朗日方程，确定这个系统的运动，并得到这个系统的一切运动学函数。</p>
+<h3 id="关于最小作用量原理"><a href="#关于最小作用量原理" class="headerlink" title="关于最小作用量原理"></a>关于最小作用量原理</h3><ol>
+<li>最小作用量原理和拉格朗日方程作为分析力学的工具，给我们提供了一种与牛顿力学完全不同的视角来看待力学系统，我们更多的关注位置、速度和能量而不是力、加速度和方向，在很多情况下更有利于我们分析系统的运动。</li>
+<li>对于有约束和摩擦的系统，不再是物理学系统而是一个工程学系统，我们不能直接运用最小作用量原理，在经过调整后我们才能使用。</li>
+<li>最小作用量原理与费马光程原理有异曲同工之妙，既然可以用光的波动性解释费马光程原理（概率振幅叠加），那么也可以用物体的波动性解释最小作用量原理，我们在最小作用量原理中发现了量子力学的萌芽（物质波）。（详情见费曼关于最小作用量原理的演讲）</li>
+</ol>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><hr>
+<p>这篇文章还留下了很多坑，比如为什么是最小作用量（诺特定理？）？拉格朗日函数为什么是这样（伽利略变换不变性与全导数？）？在有约束系统中我们应该如何运用分析力学？（非完整约束的拉格朗日方程？）等等，在以后还需要更深入的学习，尽量在后面的博文中写一写。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;记得上学期因为对变分不理解，学理力的时候对拉格朗日方程学的一直云里雾里，现在把变分工具补一下重新审视分析力学。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;泛函，变分与最速降线&quot;&gt;&lt;a href=&quot;#泛函，变分与最速降线&quot; class=&quot;h
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="http://joegyx.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="力学" scheme="http://joegyx.github.io/tags/%E5%8A%9B%E5%AD%A6/"/>
+    
+      <category term="变分法" scheme="http://joegyx.github.io/tags/%E5%8F%98%E5%88%86%E6%B3%95/"/>
+    
+      <category term="最小作用量原理" scheme="http://joegyx.github.io/tags/%E6%9C%80%E5%B0%8F%E4%BD%9C%E7%94%A8%E9%87%8F%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
