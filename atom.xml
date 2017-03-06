@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://joegyx.github.io/"/>
-  <updated>2017-03-05T01:27:49.953Z</updated>
+  <updated>2017-03-06T14:49:18.019Z</updated>
   <id>http://joegyx.github.io/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>new</title>
+    <link href="http://joegyx.github.io/2017/03/06/new/"/>
+    <id>http://joegyx.github.io/2017/03/06/new/</id>
+    <published>2017-03-06T14:48:46.000Z</published>
+    <updated>2017-03-06T14:49:18.019Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>插值和拟合在工程、统计、计算机等领域都有广泛的应用，而我们发现插值和拟合这两个行为好像有一些相似之处，比如都是已知某几个离散的点的值，通过某种方法去生成某个函数，用这个函数来帮助我们预测未知点处的取值，以此来进行研究。这篇文章总结一下插值和拟合方法，并讨论其关系。</p>
+</blockquote>
+<h2 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h2><hr>
+<h3 id="插值基函数"><a href="#插值基函数" class="headerlink" title="插值基函数"></a>插值基函数</h3><p>为了方便插值函数的构造，首先构造一个条件函数，满足<br>$$l_i(x_j)=\begin{cases}<br>1,&amp;i=j\\<br>0,&amp;i\neq j<br>\end{cases}$$<br>若已知n个函数值<br>$$y_i=f(x_i)，i=0,1,2，\cdots，n$$<br>则插值函数可以方便地表示为<br>$$L(x)=\sum_{0}^{n}l_i(x)y_i$$<br>在不同的插值函数中，插值基函数的符号一般不同，但表达意义基本相同。</p>
+<h3 id="Lagrange插值"><a href="#Lagrange插值" class="headerlink" title="Lagrange插值"></a>Lagrange插值</h3><p>$$l_i(x)=\frac{(x-x_0)(x-x_1)\cdots(x-x_{i-1})(x-x_{i+1})\cdots(x-x_n)}{(x_i-x_0)(x_i-x_1)\cdots(x_i-x_{i-1})(x_i-x_{i+1})\cdots(x_i-x_n)}$$</p>
+<h3 id="Newton插值"><a href="#Newton插值" class="headerlink" title="Newton插值"></a>Newton插值</h3><h3 id="Hermite插值"><a href="#Hermite插值" class="headerlink" title="Hermite插值"></a>Hermite插值</h3><h3 id="Runge现象与分段插值"><a href="#Runge现象与分段插值" class="headerlink" title="Runge现象与分段插值"></a>Runge现象与分段插值</h3><h3 id="样条插值"><a href="#样条插值" class="headerlink" title="样条插值"></a>样条插值</h3><h3 id="插值的思想"><a href="#插值的思想" class="headerlink" title="插值的思想"></a>插值的思想</h3><h2 id="拟合"><a href="#拟合" class="headerlink" title="拟合"></a>拟合</h2><hr>
+<h3 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h3><h3 id="拟合的思想"><a href="#拟合的思想" class="headerlink" title="拟合的思想"></a>拟合的思想</h3><h2 id="插值与拟合区别"><a href="#插值与拟合区别" class="headerlink" title="插值与拟合区别"></a>插值与拟合区别</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;插值和拟合在工程、统计、计算机等领域都有广泛的应用，而我们发现插值和拟合这两个行为好像有一些相似之处，比如都是已知某几个离散的点的值，通过某种方法去生成某个函数，用这个函数来帮助我们预测未知点处的取值，以此来进行研究。这篇文章总结一下插值和拟合方法
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>从古典变分法到分析力学</title>
