@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://joegyx.github.io/"/>
-  <updated>2017-03-06T14:49:18.019Z</updated>
+  <updated>2017-03-07T13:38:34.463Z</updated>
   <id>http://joegyx.github.io/</id>
   
   <author>
@@ -16,20 +16,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>new</title>
-    <link href="http://joegyx.github.io/2017/03/06/new/"/>
-    <id>http://joegyx.github.io/2017/03/06/new/</id>
-    <published>2017-03-06T14:48:46.000Z</published>
-    <updated>2017-03-06T14:49:18.019Z</updated>
+    <title>插值与拟合</title>
+    <link href="http://joegyx.github.io/2017/03/07/2017-03-07_chazhiyunihe/"/>
+    <id>http://joegyx.github.io/2017/03/07/2017-03-07_chazhiyunihe/</id>
+    <published>2017-03-07T14:48:46.000Z</published>
+    <updated>2017-03-07T13:38:34.463Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>插值和拟合在工程、统计、计算机等领域都有广泛的应用，而我们发现插值和拟合这两个行为好像有一些相似之处，比如都是已知某几个离散的点的值，通过某种方法去生成某个函数，用这个函数来帮助我们预测未知点处的取值，以此来进行研究。这篇文章总结一下插值和拟合方法，并讨论其关系。</p>
 </blockquote>
 <h2 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h2><hr>
-<h3 id="插值基函数"><a href="#插值基函数" class="headerlink" title="插值基函数"></a>插值基函数</h3><p>为了方便插值函数的构造，首先构造一个条件函数，满足<br>$$l_i(x_j)=\begin{cases}<br>1,&amp;i=j\\<br>0,&amp;i\neq j<br>\end{cases}$$<br>若已知n个函数值<br>$$y_i=f(x_i)，i=0,1,2，\cdots，n$$<br>则插值函数可以方便地表示为<br>$$L(x)=\sum_{0}^{n}l_i(x)y_i$$<br>在不同的插值函数中，插值基函数的符号一般不同，但表达意义基本相同。</p>
-<h3 id="Lagrange插值"><a href="#Lagrange插值" class="headerlink" title="Lagrange插值"></a>Lagrange插值</h3><p>$$l_i(x)=\frac{(x-x_0)(x-x_1)\cdots(x-x_{i-1})(x-x_{i+1})\cdots(x-x_n)}{(x_i-x_0)(x_i-x_1)\cdots(x_i-x_{i-1})(x_i-x_{i+1})\cdots(x_i-x_n)}$$</p>
-<h3 id="Newton插值"><a href="#Newton插值" class="headerlink" title="Newton插值"></a>Newton插值</h3><h3 id="Hermite插值"><a href="#Hermite插值" class="headerlink" title="Hermite插值"></a>Hermite插值</h3><h3 id="Runge现象与分段插值"><a href="#Runge现象与分段插值" class="headerlink" title="Runge现象与分段插值"></a>Runge现象与分段插值</h3><h3 id="样条插值"><a href="#样条插值" class="headerlink" title="样条插值"></a>样条插值</h3><h3 id="插值的思想"><a href="#插值的思想" class="headerlink" title="插值的思想"></a>插值的思想</h3><h2 id="拟合"><a href="#拟合" class="headerlink" title="拟合"></a>拟合</h2><hr>
-<h3 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h3><h3 id="拟合的思想"><a href="#拟合的思想" class="headerlink" title="拟合的思想"></a>拟合的思想</h3><h2 id="插值与拟合区别"><a href="#插值与拟合区别" class="headerlink" title="插值与拟合区别"></a>插值与拟合区别</h2>]]></content>
+<p>若已知n+1个函数值<br>$$y_i=f(x_i)，i=0,1,2，\cdots，n$$</p>
+<h3 id="Lagrange插值"><a href="#Lagrange插值" class="headerlink" title="Lagrange插值"></a>Lagrange插值</h3><p>希望插值基函数满足：<br>$$l_i(x_j)=\begin{cases}<br>1,&amp;i=j\\<br>0,&amp;i\neq j<br>\end{cases}$$<br>则构造插值基函数：<br>$$l_i(x)=\frac{(x-x_0)\cdots(x-x_{i-1})(x-x_{i+1})\cdots(x-x_n)}{(x_i-x_0)\cdots(x_i-x_{i-1})(x_i-x_{i+1})\cdots(x_i-x_n)}$$<br>可得插值函数：<br>$$L(x)=\sum_{0}^{n}l_i(x)y_i$$<br>拉格朗日插值的思想是构造通过n+1个点的n次多项式插值函数。</p>
+<h3 id="Newton插值"><a href="#Newton插值" class="headerlink" title="Newton插值"></a>Newton插值</h3><p>牛顿插值中，插商函数满足：<br>$$f(x_0,x_1)=\frac{f(x_0)-f(x_1)}{x_0-x_1}$$<br>$$f(x_0,\cdots,x_n)=\frac{f(x_0,\cdots,x_{n-1})-f(x_1,\cdots,x_n)}{x_0-x_n}$$<br>插值函数为：<br>$$<br>N(x)=f(x_0)+f(x_0,x_1)(x-x_0)+\cdots\\<br>+f(x_0,\cdots,x_n)(x-x_0)\cdots(x-x_{n-1})<br>$$<br>牛顿插值函数与拉格朗日插值函数，都是n次多项式，但是牛顿插值的插商计算依靠递推公式，编程时可以使用递归，更加方便。</p>
+<h3 id="Hermite插值"><a href="#Hermite插值" class="headerlink" title="Hermite插值"></a>Hermite插值</h3><p>如果我们还已知函数在已知点的一阶导数值<br>$$m_i=f’(x_i)，i=0,1,2，\cdots，n$$<br>希望插值基函数满足：<br>$$h_i(x_j)=\begin{cases}<br>1,&amp;i=j\\<br>0,&amp;i\neq j<br>\end{cases}$$<br>$$h_i’(x_j)=0$$<br>$$H_i’(x_j)=\begin{cases}<br>1,&amp;i=j\\<br>0,&amp;i\neq j<br>\end{cases}$$<br>$$H_i(x_j)=0$$<br>构造插值基函数：<br>$$\begin{cases}h_i(x)=(a+bx)(x-x_0)^2\cdots (x-x_{i-1})^2(x-x_{i+1})^2\cdots(x-x_n)^2\\<br> h_i(x_i)=1，h_i’(x_i)=0<br>\end{cases}\\<br>\begin{cases}<br>H_i(x)=a(x-x_0)^2\cdots (x-x_{i-1})^2(x-x_i)(x-x_{i+1})^2\cdots(x-x_n)^2\\<br>H_i’(x_i)=1<br>\end{cases}\\<br>\rightarrow\begin{cases}<br>h_i(x)=[1+2l_i’(x)]l_i^2(x)\\<br>H_i(x)=l_i^2(x)(x-x_i)<br>\end{cases}<br>$$<br>则插值函数为：<br>$$F(x)=\sum_{0}^{n}(h_i(x)y_i+H_i(x)m_i)$$<br>Hermite插值是利用n+1个函数值和n+1个导数值构成2n+1次插值函数，不但过每一个已知点，而且在已知点处的一阶导数也与原函数相同，拟合效果相对更好。</p>
+<h3 id="Runge现象与分段插值"><a href="#Runge现象与分段插值" class="headerlink" title="Runge现象与分段插值"></a>Runge现象与分段插值</h3><p>由于前几种插值函数是连续的多项式函数，对于某些原函数在已知函数点的区间内，插值函数能较好拟合原函数，但在区间外则严重发散，这种现象称为龙格现象。<br><img src="/2017/03/07/2017-03-07_chazhiyunihe/longge.jpg" alt="龙格现象"><br>针对这种现象，我们可以运用分段插值的方法，在每个已知点之间分段，在每一段中使用线性函数拟合。<br>在每一段内构造插值基函数：<br>$$l_0(x)=\begin{cases}<br>\frac{x-x_1}{x_0-x_1},&amp;x_0\le x\le x_1\\<br>0,&amp;x_1\lt x\le x_n<br>\end{cases}\\<br>l_i(x)=\begin{cases}<br>\frac{x-x_{j-1}}{x_j-x_{j-1}},&amp;x_{j-1}\le x\le x_j\\<br>\frac{x-x_{j+1}}{x_j-x_{j+1}},&amp;x_j\le x\le x_{j+1}\\<br>0,&amp;其他<br>\end{cases}\\<br>l_0(x)=\begin{cases}<br>\frac{x-x_{n-1}}{x_n-x_{n-1}},&amp;x_{n-1}\le x\le x_n\\<br>0,&amp;x_0\le x\lt x_{n-1}<br>\end{cases}<br>$$<br>得到插值函数为：<br>$$F(x)=\sum_{0}^{n}l_i(x)y_i$$</p>
+<h3 id="样条插值"><a href="#样条插值" class="headerlink" title="样条插值"></a>样条插值</h3><blockquote>
+<p>早期工程师制图时，把富有弹性的细长木条（所谓样条）用压铁固定在样点上，在其他地方让它自由弯曲，然后沿木条画下曲线。</p>
+</blockquote>
+<p>样条插值同时结合了分段插值和Hermite插值的方法，可以在只给出插值点上函数值和一阶导数的情况下，分段构造出二阶导数连续的插值函数，曲线更加光滑，拟合性更好，在工程上应用最为广泛。<br>这个比较复杂，基本思想就是先在每一段应用Hermite插值公式，再利用二阶导数连续，(对其求二阶导数，插值点左边等于右边)改天<del>很久以后的某天</del>单独开一篇写个程序跑一下。</p>
+<h2 id="拟合"><a href="#拟合" class="headerlink" title="拟合"></a>拟合</h2><hr>
+<p>若在实验中得到n个数据点：<br>$$(x_i,y_i)，i=1,2,\cdots,n$$</p>
+<h3 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h3><p>最小二乘法的思想是找到一个函数f(x)，使得误差函数：<br>$$J=\sum(y_i-f(x_i))^2$$<br>最小。</p>
+<h4 id="直线拟合"><a href="#直线拟合" class="headerlink" title="直线拟合"></a>直线拟合</h4><p>假设直线方程：<br>$$l:y=kx+b$$<br>则误差函数：<br>$$J=\sum(y_i-kx_i-b)^2$$<br>将误差函数J看作未知系数k和b的函数，要使得J取得最小值，则需要满足：<br>$$\frac{\partial J}{\partial k}=0,\frac{\partial J}{\partial b}=0 $$<br>得到：<br>$$<br>\begin{cases}<br>bn+k\sum x_i=\sum y_i\\<br>b\sum x_i+k\sum x^2_i=\sum x_iy_i<br>\end{cases}<br>$$<br>解出k和b即可。</p>
+<h4 id="多项式拟合"><a href="#多项式拟合" class="headerlink" title="多项式拟合"></a>多项式拟合</h4><p>假设m次多项式曲线：<br>$$l:y=\sum_{j=0}^{m}a_jx^j，(m&lt;&lt;n)$$<br>则误差函数：<br>$$J=\sum_{i=0}^{n}(y_i-\sum_{j=0}^{m}a_jx^j)^2 $$<br>在《计算方法》中给出的方法是正规方程组法，但是正规方程组法是一种古老的方法，当n值较大时，方程是病态的。正好这段时间也在看cs229，等找到了比较好的多项式拟合方法加上误差函数的证明一起再单独开一篇。（好多坑</p>
+<h2 id="插值与拟合的区别"><a href="#插值与拟合的区别" class="headerlink" title="插值与拟合的区别"></a>插值与拟合的区别</h2><hr>
+<p>在插值和拟合方法总结之后，他们之间的区别变得明显。<br>插值往往是原函数数据离散或缺失而对于插值点的数据有<strong>绝对的准确把握</strong>，通过已知的插值数据构造满足插值点处原函数性质的插值函数，通过插值函数去预测插值区间内或周围的值，从而力图描绘出系统的全貌。<br>拟合则往往是在实验测量得出的数据，我们假设<strong>测量会会产生误差，且误差符合正态分布</strong>，对系数矩阵进行极大似然估计后，得到误差函数（这个过程的证明后面博文会写），再通过微分求出使误差函数最小的系数矩阵，从而预测接下来实验的取得的值，从而力图描绘出系统的全貌。<br>在以后的学习中有了更深的理解这篇博文会更新。</p>
+]]></content>
     
     <summary type="html">
     
@@ -39,14 +52,20 @@
     </summary>
     
     
+      <category term="数学" scheme="http://joegyx.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="数值分析" scheme="http://joegyx.github.io/tags/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/"/>
+    
+      <category term="数学建模" scheme="http://joegyx.github.io/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
   </entry>
   
   <entry>
     <title>从古典变分法到分析力学</title>
-    <link href="http://joegyx.github.io/2017/03/04/bianfenfa/"/>
-    <id>http://joegyx.github.io/2017/03/04/bianfenfa/</id>
+    <link href="http://joegyx.github.io/2017/03/04/2017-03-04_bianfenfa/"/>
+    <id>http://joegyx.github.io/2017/03/04/2017-03-04_bianfenfa/</id>
     <published>2017-03-04T09:53:03.000Z</published>
-    <updated>2017-03-05T01:27:49.953Z</updated>
+    <updated>2017-03-07T10:50:43.168Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>记得上学期因为对变分不理解，学理力的时候对拉格朗日方程学的一直云里雾里，现在把变分工具补一下重新审视分析力学。</p>
@@ -54,20 +73,20 @@
 <h2 id="泛函，变分与最速降线"><a href="#泛函，变分与最速降线" class="headerlink" title="泛函，变分与最速降线"></a>泛函，变分与最速降线</h2><hr>
 <h3 id="泛函"><a href="#泛函" class="headerlink" title="泛函"></a>泛函</h3><p>函数是数域到数域的映射，而泛函是一种特殊的函数，是函数域到数域的映射。也可以说，函数是”你给他一个数，他给你一个数”，而泛函是”你给他一个函数，他给你一个数”。<br>比如在空间中有a点和b点，从a点到b点有无数条路径，则从a到b所用时间就是一个泛函，每条路径就是一个函数，每条路径对应一个所用时间的值。</p>
 <h3 id="泛函的极值与变分"><a href="#泛函的极值与变分" class="headerlink" title="泛函的极值与变分"></a>泛函的极值与变分</h3><p>我们求泛函的极值，就是说找到一类函数，使得对应泛函取得极值。同样的我们想到求解微分方程也是相似的问题：找到一类函数，使得对应微分方程成立。所以我们可以构造出与一个泛函极值相对应的解函数相同的微分方程。<br>对于一元函数<br>$$y=f(x)$$<br>我们知道，当一阶导数为零时，即<br>$$\frac{dy}{dx}=0$$<br>时，函数取得极值。对应的对于一元函数的泛函<br>$$J=\int_{x_1}^{x_2}L(x,y,y’)dx$$<br>其变分为零时，即<br>$$\delta J=0$$<br>时，J取得极值，这就是我们要找的微分方程，也叫欧拉方程，其解为一元函数。</p>
-<h3 id="最简单泛函变分的欧拉方程"><a href="#最简单泛函变分的欧拉方程" class="headerlink" title="最简单泛函变分的欧拉方程"></a>最简单泛函变分的欧拉方程</h3><p>对于一元函数的泛函<br>$$J=\int_{x_1}^{x_2}L(x,y,y’)dx$$$$y(x_1)=y_1，y(x_2)=y_2$$<br>其变分对应的欧拉方程为<br>$$F_y-\frac{d}{dx}F_y’=0$$$$y(x_1)=y_1，y(x_2)=y_2$$<br>这里不做证明。</p>
+<h3 id="最简单泛函变分的欧拉方程"><a href="#最简单泛函变分的欧拉方程" class="headerlink" title="最简单泛函变分的欧拉方程"></a>最简单泛函变分的欧拉方程</h3><p>对于一元函数的泛函<br>$$<br>J=\int_{x_1}^{x_2}L(x,y,y’)dx\\<br>y(x_1)=y_1，y(x_2)=y_2<br>$$<br>其变分对应的欧拉方程为<br>$$<br>F_y-\frac{d}{dx}F_y’=0\\<br>y(x_1)=y_1，y(x_2)=y_2<br>$$<br>这里不做证明。</p>
 <h3 id="最速降线问题"><a href="#最速降线问题" class="headerlink" title="最速降线问题"></a>最速降线问题</h3><blockquote>
 <p>在一个斜面上，摆两条轨道，一条是直线，一条是曲线，起点高度以及终点高度都相同。两个质量、大小一样的小球同时从起点向下滑落，曲线的小球反而先到终点。这是由于曲线轨道上的小球先达到最高速度，所以先到达。然而，两点之间的直线只有一条，曲线却有无数条，那么，哪一条才是最快的呢？伽利略于1630年提出了这个问题，当时他认为这条线应该是一条弧线，可是后来人们发现这个答案是错误的。1696年，瑞士数学家约翰·伯努利解决了这个问题，他还拿这个问题向其他数学家提出了公开挑战。牛顿、莱布尼兹、洛比达以及雅克布·伯努利等解决了这个问题。这条最速降线就是一条摆线，也叫旋轮线。</p>
 </blockquote>
-<p>在学习以上内容之后，我们就可以运用变分法解决这个问题了。<br>边界条件：<br>$$y(0)=0，y(x1)=y1$$<br>动能定理：<br>$$\frac{1}{2}mv^2=mgy\rightarrow v=\sqrt{2gy}$$<br>弧积分与微积分处理：<br>$$v=\frac{ds}{dt}=\frac{ds}{dx}\frac{dx}{dt}=\sqrt{1+y’^2}\frac{dx}{dt}$$$$T=\int_{0}^{x_1}\sqrt{\frac{1+y’^2}{2gy}}dx$$<br>注意到T就是y=y(x)的泛函，我们要求使T取最小值的曲线y。<br>带入欧拉方程并积分：<br>$$\sqrt{\frac{1+y’^2}{2gy}}-\frac{y’^2}{\sqrt{2gy(1+y’^2)}}=c_1$$<br>令<br>$$c=\frac{1}{2gc_1^2}，y’=cot\theta$$<br>得到：<br>$$y=\frac{c}{1+y’^2}=\frac{c}{2}(1-cos2\theta)$$<br>又因为：<br>$$dx=\frac{dt}{y’}=c(1-cos2\theta)d\theta\rightarrow x=\frac{c}{2}(2\theta-sin2\theta)+c_2$$<br>带入边界条件，并做处理,令：<br>$$t=2\theta\rightarrow x(t)=\frac{c}{2}(t-sint)，y(t)=\frac c2(1-cost)$$<br>得到滚轮线。</p>
+<p>在学习以上内容之后，我们就可以运用变分法解决这个问题了。<br>边界条件：<br>$$y(0)=0，y(x1)=y1$$<br>动能定理：<br>$$\frac{1}{2}mv^2=mgy\rightarrow v=\sqrt{2gy}$$<br>弧积分与微积分处理：<br>$$<br>v=\frac{ds}{dt}=\frac{ds}{dx}\frac{dx}{dt}=\sqrt{1+y’^2}\frac{dx}{dt} \\<br>T=\int_{0}^{x_1}\sqrt{\frac{1+y’^2}{2gy}}dx<br>$$<br>注意到T就是y=y(x)的泛函，我们要求使T取最小值的曲线y。<br>带入欧拉方程并积分：<br>$$\sqrt{\frac{1+y’^2}{2gy}}-\frac{y’^2}{\sqrt{2gy(1+y’^2)}}=c_1$$<br>令<br>$$c=\frac{1}{2gc_1^2}，y’=cot\theta$$<br>得到：<br>$$y=\frac{c}{1+y’^2}=\frac{c}{2}(1-cos2\theta)$$<br>又因为：<br>$$<br>dx=\frac{dt}{y’}=c(1-cos2\theta)d\theta \rightarrow \\<br>x=\frac{c}{2}(2\theta-sin2\theta)+c_2<br>$$<br>带入边界条件，并做处理,令：<br>$$t=2\theta\rightarrow\\<br>x(t)=\frac{c}{2}(t-sint)，y(t)=\frac c2(1-cost)$$<br>得到滚轮线。</p>
 <h2 id="分析力学的最小作用量原理"><a href="#分析力学的最小作用量原理" class="headerlink" title="分析力学的最小作用量原理"></a>分析力学的最小作用量原理</h2><hr>
-<h3 id="最小作用量原理与拉格朗日方程"><a href="#最小作用量原理与拉格朗日方程" class="headerlink" title="最小作用量原理与拉格朗日方程"></a>最小作用量原理与拉格朗日方程</h3><p>一个力学系统可以由所有质点的位置和速度与时间的函数表示<br>$$L(q1,q2,\cdots,q1’,q2’,…,t)$$<br>我们称<br>$$S=\int_{t_1}^{t_2}L(q,q’,t)dt$$<br>为作用量，L为拉格朗日函数，而系统的运动满足在微小的一段时间内，作用量取最小值。即<br>$$\delta S=0$$<br>作用量的变分等于零，由欧拉公式得到<br>$$\frac{d}{dx}\frac{\partial L}{\partial q’}-\frac{\partial L}{\partial q}=0$$<br>在分析力学中称之为拉格朗日方程。经过力学和数学证明，拉格朗日函数<br>$$L=\frac{1}{2}mv^2-U(r,t)$$<br>证明见《朗道力学》4-9页。<br>观察发现如果知道某力学系统的初始位置和速度作为初始条件，那么我们就能通过最小作用量原理或拉格朗日方程，确定这个系统的运动，并得到这个系统的一切运动学函数。</p>
+<h3 id="最小作用量原理与拉格朗日方程"><a href="#最小作用量原理与拉格朗日方程" class="headerlink" title="最小作用量原理与拉格朗日方程"></a>最小作用量原理与拉格朗日方程</h3><p>一个力学系统可以由所有质点的位置和速度与时间的函数表示<br>$$L(q_1,q_2,\cdots,q_1’,q_2’,…,t)$$<br>我们称<br>$$S=\int_{t_1}^{t_2}L(q,q’,t)dt$$<br>为作用量，L为拉格朗日函数，而系统的运动满足在微小的一段时间内，作用量取最小值。即<br>$$\delta S=0$$<br>作用量的变分等于零，由欧拉公式得到<br>$$\frac{d}{dx}\frac{\partial L}{\partial q’}-\frac{\partial L}{\partial q}=0$$<br>在分析力学中称之为拉格朗日方程。经过力学和数学证明，拉格朗日函数<br>$$L=\frac{1}{2}mv^2-U(r,t)$$<br>证明见《朗道力学》4-9页。<br>观察发现如果知道某力学系统的初始位置和速度作为初始条件，那么我们就能通过最小作用量原理或拉格朗日方程，确定这个系统的运动，并得到这个系统的一切运动学函数。</p>
 <h3 id="关于最小作用量原理"><a href="#关于最小作用量原理" class="headerlink" title="关于最小作用量原理"></a>关于最小作用量原理</h3><ol>
 <li>最小作用量原理和拉格朗日方程作为分析力学的工具，给我们提供了一种与牛顿力学完全不同的视角来看待力学系统，我们更多的关注位置、速度和能量而不是力、加速度和方向，在很多情况下更有利于我们分析系统的运动。</li>
 <li>对于有约束和摩擦的系统，不再是物理学系统而是一个工程学系统，我们不能直接运用最小作用量原理，在经过调整后我们才能使用。</li>
 <li>最小作用量原理与费马光程原理有异曲同工之妙，既然可以用光的波动性解释费马光程原理（概率振幅叠加），那么也可以用物体的波动性解释最小作用量原理，我们在最小作用量原理中发现了量子力学的萌芽（物质波）。（详情见费曼关于最小作用量原理的演讲）</li>
 </ol>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><hr>
-<p>这篇文章还留下了很多坑，比如为什么是最小作用量（诺特定理？）？拉格朗日函数为什么是这样（伽利略变换不变性与全导数？）？在有约束系统中我们应该如何运用分析力学？（非完整约束的拉格朗日方程？）等等，在以后还需要更深入的学习，尽量在后面的博文中写一写。</p>
+<p>这篇文章还留下了很多坑，比如为什么是最小作用量？（拉氏量的选取？）拉格朗日函数为什么是这样（伽利略变换不变性与全导数？）？在有约束系统中我们应该如何运用分析力学？（非完整约束的拉格朗日方程？）等等，在以后还需要更深入的学习，尽量在后面的博文中写一写。</p>
 ]]></content>
     
     <summary type="html">
@@ -92,16 +111,16 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://joegyx.github.io/2017/03/03/Hello-World/"/>
-    <id>http://joegyx.github.io/2017/03/03/Hello-World/</id>
+    <link href="http://joegyx.github.io/2017/03/03/2017-03-03_Hello-World/"/>
+    <id>http://joegyx.github.io/2017/03/03/2017-03-03_Hello-World/</id>
     <published>2017-03-03T05:55:55.000Z</published>
     <updated>2017-03-04T00:47:41.666Z</updated>
     
-    <content type="html"><![CDATA[<p>两天时间终于部署好了blog，布置CDN和域名什么的太烦了，最后不得已还是在code.net和github都部署了资源，国内用code.net的资源，海外用github，测了一下访问速度还是很不错的XD坐等百度的爬虫抓到这个站，不过估计还要一两个月吧。<br><img src="/2017/03/03/Hello-World/ping.png" alt="网站测速"></p>
+    <content type="html"><![CDATA[<p>两天时间终于部署好了blog，布置CDN和域名什么的太烦了，最后不得已还是在code.net和github都部署了资源，国内用code.net的资源，海外用github，测了一下访问速度还是很不错的XD坐等百度的爬虫抓到这个站，不过估计还要一两个月吧。<br><img src="/2017/03/03/2017-03-03_Hello-World/ping.png" alt="网站测速"></p>
 <p>这个站就主要写写数学，物理，计算机，力学还有一些乱七八糟的内容，刚刚弄好还有很多想实现的功能没实现，以后慢慢完善。</p>
 <p>站名取自王朗与诸葛亮<del>鬼畜</del>的名句，老一辈表演艺术家的传神表演在我们心中留下了深刻的印象，在最后我们来复习一下：</p>
 <blockquote>
-<p>王朗：（两军阵前，拱手）来者可是诸葛孔明？﻿<br>诸葛亮：（扶扇拱手）正是。﻿<br>王朗：久闻公之大名，今日有幸相会！<br>诸葛亮：（无视……）<br>王朗：呃……公既知天命，识时务，为何要兴此无名之师？犯我疆界？﻿<br>诸葛亮：我奉诏讨贼，何谓之无名？﻿<br>王朗：天数有变，神器更易，而归有德之人，<strong>此乃自然之理</strong>。（曹真在旁点头）﻿<br>诸葛亮：（羽扇遥指）曹贼篡汉，霸占中原，何称有德之人？﻿<br>王朗：自桓帝、灵帝以来，黄巾猖獗，天下纷争，社稷有累卵之危，生灵有倒悬之急。我太祖武皇帝，扫清六合，席卷八荒，万姓倾心，四方仰德，此非以权势取之，实乃天命所归也！我世祖文皇帝，神文圣武，继承大统，应天合人，法尧禅舜，处中国以治万邦，这岂非天心人意乎？今公蕴大才，抱大器自比管仲，乐毅，何乃强要逆天理，背人情而行事？岂不闻古人云：顺天者昌，逆天者亡。今我大魏带甲百万，良将千员。谅尔等腐草之萤光，如何比得上天空之皓月？你若倒戈卸甲，以礼来降，仍不失封侯之位，国安民乐，<strong>岂不美哉</strong>？（摊手）﻿<br><img src="/2017/03/03/Hello-World/wangsitu.png" alt=""><br>诸葛亮：（狂笑数声，扶扇而答）我原以为你身为汉朝老臣，来到阵前，面对两军将士，必有高论。没想到竟说出如此粗鄙之语！﻿<br>王朗：（大惊，慌忙向四周看去）﻿<br>诸葛亮：我有一言，请诸位静听。昔日桓帝、灵帝之时，汉统衰落，宦官酿祸，国乱岁凶，四方扰攘。黄巾之后，董卓，李傕，郭汜等接踵而起，劫持汉帝，残暴生灵。因之，庙堂之上，朽木为官；殿陛之间，禽兽食禄。以至狼心狗行之辈，汹汹当朝，奴颜婢膝之徒，纷纷秉政，以致社稷变为丘墟，苍生饱受涂炭之苦！值此国难之际，王司徒又有何作为？王司徒之生平，我素有所知，你世居东海之滨，初举孝廉入仕，理当匡君辅国，安汉兴刘，何期反助逆贼，同谋篡位！罪恶深重，天地不容！﻿<br>王朗： （手指诸葛亮）你……诸葛村夫，你敢……﻿<br>诸葛亮：（愤而站立）住口！无耻老贼，岂不知天下之人，皆愿生啖你肉，安敢在此饶舌！今幸天意不绝炎汉，昭烈皇帝于西川，继承大统，我今奉嗣君之旨，兴师讨贼，你既为谄谀之臣，只可潜身缩首，苟图衣食，怎敢在我军面前妄称天数！皓首匹夫，苍髯老贼！你即将命归九泉之下，届时有何面目去见汉朝二十四代先帝？！﻿<br>王朗： （手捂胸口，颤声）我、我、我……﻿<br>诸葛亮：（大声斥责）二臣贼子，你枉活七十有六，一生未立寸功，只会摇唇鼓舌！助曹为虐！一条断脊之犬，还敢在我军阵前狺狺狂吠，我从未见过有如此厚颜无耻之人！﻿<br>王朗： 你、你……啊……（坠于马下，左右上前扶起，已死…）</p>
+<p>王朗：（两军阵前，拱手）来者可是诸葛孔明？﻿<br>诸葛亮：（扶扇拱手）正是。﻿<br>王朗：久闻公之大名，今日有幸相会！<br>诸葛亮：（无视……）<br>王朗：呃……公既知天命，识时务，为何要兴此无名之师？犯我疆界？﻿<br>诸葛亮：我奉诏讨贼，何谓之无名？﻿<br>王朗：天数有变，神器更易，而归有德之人，<strong>此乃自然之理</strong>。（曹真在旁点头）﻿<br>诸葛亮：（羽扇遥指）曹贼篡汉，霸占中原，何称有德之人？﻿<br>王朗：自桓帝、灵帝以来，黄巾猖獗，天下纷争，社稷有累卵之危，生灵有倒悬之急。我太祖武皇帝，扫清六合，席卷八荒，万姓倾心，四方仰德，此非以权势取之，实乃天命所归也！我世祖文皇帝，神文圣武，继承大统，应天合人，法尧禅舜，处中国以治万邦，这岂非天心人意乎？今公蕴大才，抱大器自比管仲，乐毅，何乃强要逆天理，背人情而行事？岂不闻古人云：顺天者昌，逆天者亡。今我大魏带甲百万，良将千员。谅尔等腐草之萤光，如何比得上天空之皓月？你若倒戈卸甲，以礼来降，仍不失封侯之位，国安民乐，<strong>岂不美哉</strong>？（摊手）﻿<br><img src="/2017/03/03/2017-03-03_Hello-World/wangsitu.png" alt=""><br>诸葛亮：（狂笑数声，扶扇而答）我原以为你身为汉朝老臣，来到阵前，面对两军将士，必有高论。没想到竟说出如此粗鄙之语！﻿<br>王朗：（大惊，慌忙向四周看去）﻿<br>诸葛亮：我有一言，请诸位静听。昔日桓帝、灵帝之时，汉统衰落，宦官酿祸，国乱岁凶，四方扰攘。黄巾之后，董卓，李傕，郭汜等接踵而起，劫持汉帝，残暴生灵。因之，庙堂之上，朽木为官；殿陛之间，禽兽食禄。以至狼心狗行之辈，汹汹当朝，奴颜婢膝之徒，纷纷秉政，以致社稷变为丘墟，苍生饱受涂炭之苦！值此国难之际，王司徒又有何作为？王司徒之生平，我素有所知，你世居东海之滨，初举孝廉入仕，理当匡君辅国，安汉兴刘，何期反助逆贼，同谋篡位！罪恶深重，天地不容！﻿<br>王朗： （手指诸葛亮）你……诸葛村夫，你敢……﻿<br>诸葛亮：（愤而站立）住口！无耻老贼，岂不知天下之人，皆愿生啖你肉，安敢在此饶舌！今幸天意不绝炎汉，昭烈皇帝于西川，继承大统，我今奉嗣君之旨，兴师讨贼，你既为谄谀之臣，只可潜身缩首，苟图衣食，怎敢在我军面前妄称天数！皓首匹夫，苍髯老贼！你即将命归九泉之下，届时有何面目去见汉朝二十四代先帝？！﻿<br>王朗： （手捂胸口，颤声）我、我、我……﻿<br>诸葛亮：（大声斥责）二臣贼子，你枉活七十有六，一生未立寸功，只会摇唇鼓舌！助曹为虐！一条断脊之犬，还敢在我军阵前狺狺狂吠，我从未见过有如此厚颜无耻之人！﻿<br>王朗： 你、你……啊……（坠于马下，左右上前扶起，已死…）</p>
 </blockquote>
 <p><a href="http://www.bilibili.com/video/av2971875" target="_blank" rel="external">诸葛亮王司徒-bilibili</a></p>
 ]]></content>

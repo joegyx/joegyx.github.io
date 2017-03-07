@@ -4,27 +4,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>new | 此乃自然之理</title>
+  <title>Tag: 数学建模 | 此乃自然之理</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="插值和拟合在工程、统计、计算机等领域都有广泛的应用，而我们发现插值和拟合这两个行为好像有一些相似之处，比如都是已知某几个离散的点的值，通过某种方法去生成某个函数，用这个函数来帮助我们预测未知点处的取值，以此来进行研究。这篇文章总结一下插值和拟合方法，并讨论其关系。
-
-插值
-插值基函数为了方便插值函数的构造，首先构造一个条件函数，满足$$l_i(x_j)=\begin{cases}1,&amp;amp;i">
-<meta property="og:type" content="article">
-<meta property="og:title" content="new">
-<meta property="og:url" content="http://joegyx.github.io/2017/03/06/new/index.html">
+  <meta name="description" content="xxiang写字的地方">
+<meta property="og:type" content="website">
+<meta property="og:title" content="此乃自然之理">
+<meta property="og:url" content="http://joegyx.github.io/tags/数学建模/index.html">
 <meta property="og:site_name" content="此乃自然之理">
-<meta property="og:description" content="插值和拟合在工程、统计、计算机等领域都有广泛的应用，而我们发现插值和拟合这两个行为好像有一些相似之处，比如都是已知某几个离散的点的值，通过某种方法去生成某个函数，用这个函数来帮助我们预测未知点处的取值，以此来进行研究。这篇文章总结一下插值和拟合方法，并讨论其关系。
-
-插值
-插值基函数为了方便插值函数的构造，首先构造一个条件函数，满足$$l_i(x_j)=\begin{cases}1,&amp;amp;i">
-<meta property="og:updated_time" content="2017-03-06T14:49:18.019Z">
+<meta property="og:description" content="xxiang写字的地方">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="new">
-<meta name="twitter:description" content="插值和拟合在工程、统计、计算机等领域都有广泛的应用，而我们发现插值和拟合这两个行为好像有一些相似之处，比如都是已知某几个离散的点的值，通过某种方法去生成某个函数，用这个函数来帮助我们预测未知点处的取值，以此来进行研究。这篇文章总结一下插值和拟合方法，并讨论其关系。
-
-插值
-插值基函数为了方便插值函数的构造，首先构造一个条件函数，满足$$l_i(x_j)=\begin{cases}1,&amp;amp;i">
+<meta name="twitter:title" content="此乃自然之理">
+<meta name="twitter:description" content="xxiang写字的地方">
   
     <link rel="alternative" href="/atom.xml" title="此乃自然之理" type="application/atom+xml">
   
@@ -80,69 +70,41 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-new" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/06/new/" class="article-date">
-  <time datetime="2017-03-06T14:48:46.000Z" itemprop="datePublished">2017-03-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      new
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/03/07/2017-03-07_chazhiyunihe/" class="archive-article-date">
+  <time datetime="2017-03-07T14:48:46.000Z" itemprop="datePublished">03-07</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/07/2017-03-07_chazhiyunihe/">插值与拟合</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>插值和拟合在工程、统计、计算机等领域都有广泛的应用，而我们发现插值和拟合这两个行为好像有一些相似之处，比如都是已知某几个离散的点的值，通过某种方法去生成某个函数，用这个函数来帮助我们预测未知点处的取值，以此来进行研究。这篇文章总结一下插值和拟合方法，并讨论其关系。</p>
-</blockquote>
-<h2 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h2><hr>
-<h3 id="插值基函数"><a href="#插值基函数" class="headerlink" title="插值基函数"></a>插值基函数</h3><p>为了方便插值函数的构造，首先构造一个条件函数，满足<br>$$l_i(x_j)=\begin{cases}<br>1,&amp;i=j\\<br>0,&amp;i\neq j<br>\end{cases}$$<br>若已知n个函数值<br>$$y_i=f(x_i)，i=0,1,2，\cdots，n$$<br>则插值函数可以方便地表示为<br>$$L(x)=\sum_{0}^{n}l_i(x)y_i$$<br>在不同的插值函数中，插值基函数的符号一般不同，但表达意义基本相同。</p>
-<h3 id="Lagrange插值"><a href="#Lagrange插值" class="headerlink" title="Lagrange插值"></a>Lagrange插值</h3><p>$$l_i(x)=\frac{(x-x_0)(x-x_1)\cdots(x-x_{i-1})(x-x_{i+1})\cdots(x-x_n)}{(x_i-x_0)(x_i-x_1)\cdots(x_i-x_{i-1})(x_i-x_{i+1})\cdots(x_i-x_n)}$$</p>
-<h3 id="Newton插值"><a href="#Newton插值" class="headerlink" title="Newton插值"></a>Newton插值</h3><h3 id="Hermite插值"><a href="#Hermite插值" class="headerlink" title="Hermite插值"></a>Hermite插值</h3><h3 id="Runge现象与分段插值"><a href="#Runge现象与分段插值" class="headerlink" title="Runge现象与分段插值"></a>Runge现象与分段插值</h3><h3 id="样条插值"><a href="#样条插值" class="headerlink" title="样条插值"></a>样条插值</h3><h3 id="插值的思想"><a href="#插值的思想" class="headerlink" title="插值的思想"></a>插值的思想</h3><h2 id="拟合"><a href="#拟合" class="headerlink" title="拟合"></a>拟合</h2><hr>
-<h3 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h3><h3 id="拟合的思想"><a href="#拟合的思想" class="headerlink" title="拟合的思想"></a>拟合的思想</h3><h2 id="插值与拟合区别"><a href="#插值与拟合区别" class="headerlink" title="插值与拟合区别"></a>插值与拟合区别</h2>
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://joegyx.github.io/2017/03/06/new/" data-id="cizy83j440001wd4zhg7hoven" class="article-share-link" data-share="baidu" data-title="new">分享到</a>
-      
-
-      
-        <a href="http://joegyx.github.io/2017/03/06/new/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2017/03/04/bianfenfa/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">从古典变分法到分析力学</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
+  
+  
+    </div></section>
+  
 
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2017/03/06/new/" data-title="new" data-url="http://joegyx.github.io/2017/03/06/new/"></div>
-  </section>
 </section>
       
       <aside id="sidebar">
@@ -153,7 +115,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/乱七八糟/">乱七八糟</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/力学/">力学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变分法/">变分法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最小作用量原理/">最小作用量原理</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/乱七八糟/">乱七八糟</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/力学/">力学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变分法/">变分法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数值分析/">数值分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学建模/">数学建模</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最小作用量原理/">最小作用量原理</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -162,7 +124,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/乱七八糟/" style="font-size: 10px;">乱七八糟</a> <a href="/tags/力学/" style="font-size: 10px;">力学</a> <a href="/tags/变分法/" style="font-size: 10px;">变分法</a> <a href="/tags/数学/" style="font-size: 10px;">数学</a> <a href="/tags/最小作用量原理/" style="font-size: 10px;">最小作用量原理</a>
+      <a href="/tags/乱七八糟/" style="font-size: 10px;">乱七八糟</a> <a href="/tags/力学/" style="font-size: 10px;">力学</a> <a href="/tags/变分法/" style="font-size: 10px;">变分法</a> <a href="/tags/数值分析/" style="font-size: 10px;">数值分析</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数学建模/" style="font-size: 10px;">数学建模</a> <a href="/tags/最小作用量原理/" style="font-size: 10px;">最小作用量原理</a>
     </div>
   </div>
 
@@ -184,15 +146,15 @@
       <ul>
         
           <li>
-            <a href="/2017/03/06/new/">new</a>
+            <a href="/2017/03/07/2017-03-07_chazhiyunihe/">插值与拟合</a>
           </li>
         
           <li>
-            <a href="/2017/03/04/bianfenfa/">从古典变分法到分析力学</a>
+            <a href="/2017/03/04/2017-03-04_bianfenfa/">从古典变分法到分析力学</a>
           </li>
         
           <li>
-            <a href="/2017/03/03/Hello-World/">Hello World</a>
+            <a href="/2017/03/03/2017-03-03_Hello-World/">Hello World</a>
           </li>
         
       </ul>
