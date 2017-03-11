@@ -4,18 +4,18 @@
 
     
   <url>
-    <loc>http://joegyx.top/2017/03/07/2017-03-07_chazhiyunihe/</loc>
-    <lastmod>2017-03-07T13:38:34.463Z</lastmod>
+    <loc>http://joegyx.top/2017/03/11/2017-03-11_baidushoulu/</loc>
+    <lastmod>2017-03-11T02:55:32.914Z</lastmod>
     <data>
         <display>
-        <title>插值与拟合</title>
-        <pubTime>2017-03-07T14:48:46.000Z</pubTime>
+        <title>用python向百度主动推送blog站点</title>
+        <pubTime>2017-03-11T02:42:32.000Z</pubTime>
         
-        <tag>数学</tag>
+        <tag>python</tag>
          
-        <tag>数值分析</tag>
+        <tag>编程</tag>
          
-        <tag>数学建模</tag>
+        <tag>blog</tag>
          
          
            
@@ -26,7 +26,7 @@
     
   <url>
     <loc>http://joegyx.top/2017/03/04/2017-03-04_bianfenfa/</loc>
-    <lastmod>2017-03-07T10:50:43.168Z</lastmod>
+    <lastmod>2017-03-11T02:48:00.160Z</lastmod>
     <data>
         <display>
         <title>从古典变分法到分析力学</title>
@@ -39,6 +39,27 @@
         <tag>变分法</tag>
          
         <tag>最小作用量原理</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://joegyx.top/2017/03/07/2017-03-07_chazhiyunihe/</loc>
+    <lastmod>2017-03-07T13:38:34.463Z</lastmod>
+    <data>
+        <display>
+        <title>插值与拟合</title>
+        <pubTime>2017-03-07T14:48:46.000Z</pubTime>
+        
+        <tag>数学</tag>
+         
+        <tag>数值分析</tag>
+         
+        <tag>数学建模</tag>
          
          
            

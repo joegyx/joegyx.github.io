@@ -72,6 +72,71 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-2017-03-11_baidushoulu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/11/2017-03-11_baidushoulu/" class="article-date">
+  <time datetime="2017-03-11T02:42:32.000Z" itemprop="datePublished">2017-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/11/2017-03-11_baidushoulu/">用python向百度主动推送blog站点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>自动推送和主动提交了站点快一个星期了，百度总是不收录到搜索结果中，再看看谷歌，我提交的第二天就收录了，之后每天自动抓取sitemap，简直良心。<br>这么久都没收录只能使用百度最推荐的<strong>主动推送</strong>了，写了个python脚本推送了一下，代码分享出来。<br>在新建项目目录下这样建立文件<br><img src="/2017/03/11/2017-03-11_baidushoulu/list.png" alt="项目目录"></p>
+<p>post.py代码：</p>
+<pre><code>coding:utf-8
+import requests #requests不是python自带的包，要下载
+
+site=&quot; &quot;#站点域名，不加http
+token=&quot; &quot;#你的密令，百度站长工具首页有
+
+url=&quot;http://data.zz.baidu.com/urls?site=&quot;+site+&quot;&amp;token=&quot;+token
+
+urls={&quot;file&quot;:open(&apos;urls.txt&apos;, &apos;rb&apos;)}#读取urls.txt文件,txt文件内写要推送的网页，用换行隔开（在网页最后加.html，详情见百度站长主动推送
+
+r=requests.post(url=url,files=urls)
+print r.text
+</code></pre><p>urls.txt文件写要推送的网页，用换行隔开，在网页最后加.html，详情见百度站长主动推送。<br>txt文件格式样例：</p>
+<pre><code>http://joegyx.top/2017/03/07/2017-03-07_chazhiyunihe.html
+http://joegyx.top/2017/03/04/2017-03-04_bianfenfa.html
+http://joegyx.top/2017/03/03/2017-03-03_Hello-World.html
+http://joegyx.top/archives.html
+</code></pre><p>之后运行就可以了，返回代码200或者返回值中有success就行，success的数字代表提交成功的数字，返回内容的含义见<em>百度站长工具-主动推送</em>部分。具体效果还不知道……等着收录了回来更新。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://joegyx.github.io/2017/03/11/2017-03-11_baidushoulu/" data-id="cj04njsri0002tf4zz9yru559" class="article-share-link" data-share="baidu" data-title="用python向百度主动推送blog站点">分享到</a>
+      
+
+      
+        <a href="http://joegyx.github.io/2017/03/11/2017-03-11_baidushoulu/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程/">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2017-03-07_chazhiyunihe" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/07/2017-03-07_chazhiyunihe/" class="article-date">
@@ -119,7 +184,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://joegyx.github.io/2017/03/07/2017-03-07_chazhiyunihe/" data-id="cizzks3md0003fp4z7b7rw133" class="article-share-link" data-share="baidu" data-title="插值与拟合">分享到</a>
+        <a data-url="http://joegyx.github.io/2017/03/07/2017-03-07_chazhiyunihe/" data-id="cj04njsrt0005tf4z5t8ivg6s" class="article-share-link" data-share="baidu" data-title="插值与拟合">分享到</a>
       
 
       
@@ -171,7 +236,7 @@
 </blockquote>
 <p>在学习以上内容之后，我们就可以运用变分法解决这个问题了。<br>边界条件：<br>$$y(0)=0，y(x1)=y1$$<br>动能定理：<br>$$\frac{1}{2}mv^2=mgy\rightarrow v=\sqrt{2gy}$$<br>弧积分与微积分处理：<br>$$<br>v=\frac{ds}{dt}=\frac{ds}{dx}\frac{dx}{dt}=\sqrt{1+y’^2}\frac{dx}{dt} \\<br>T=\int_{0}^{x_1}\sqrt{\frac{1+y’^2}{2gy}}dx<br>$$<br>注意到T就是y=y(x)的泛函，我们要求使T取最小值的曲线y。<br>带入欧拉方程并积分：<br>$$\sqrt{\frac{1+y’^2}{2gy}}-\frac{y’^2}{\sqrt{2gy(1+y’^2)}}=c_1$$<br>令<br>$$c=\frac{1}{2gc_1^2}，y’=cot\theta$$<br>得到：<br>$$y=\frac{c}{1+y’^2}=\frac{c}{2}(1-cos2\theta)$$<br>又因为：<br>$$<br>dx=\frac{dt}{y’}=c(1-cos2\theta)d\theta \rightarrow \\<br>x=\frac{c}{2}(2\theta-sin2\theta)+c_2<br>$$<br>带入边界条件，并做处理,令：<br>$$t=2\theta\rightarrow\\<br>x(t)=\frac{c}{2}(t-sint)，y(t)=\frac c2(1-cost)$$<br>得到滚轮线。</p>
 <h2 id="分析力学的最小作用量原理"><a href="#分析力学的最小作用量原理" class="headerlink" title="分析力学的最小作用量原理"></a>分析力学的最小作用量原理</h2><hr>
-<h3 id="最小作用量原理与拉格朗日方程"><a href="#最小作用量原理与拉格朗日方程" class="headerlink" title="最小作用量原理与拉格朗日方程"></a>最小作用量原理与拉格朗日方程</h3><p>一个力学系统可以由所有质点的位置和速度与时间的函数表示<br>$$L(q_1,q_2,\cdots,q_1’,q_2’,…,t)$$<br>我们称<br>$$S=\int_{t_1}^{t_2}L(q,q’,t)dt$$<br>为作用量，L为拉格朗日函数，而系统的运动满足在微小的一段时间内，作用量取最小值。即<br>$$\delta S=0$$<br>作用量的变分等于零，由欧拉公式得到<br>$$\frac{d}{dx}\frac{\partial L}{\partial q’}-\frac{\partial L}{\partial q}=0$$<br>在分析力学中称之为拉格朗日方程。经过力学和数学证明，拉格朗日函数<br>$$L=\frac{1}{2}mv^2-U(r,t)$$<br>证明见《朗道力学》4-9页。<br>观察发现如果知道某力学系统的初始位置和速度作为初始条件，那么我们就能通过最小作用量原理或拉格朗日方程，确定这个系统的运动，并得到这个系统的一切运动学函数。</p>
+<h3 id="最小作用量原理与拉格朗日方程"><a href="#最小作用量原理与拉格朗日方程" class="headerlink" title="最小作用量原理与拉格朗日方程"></a>最小作用量原理与拉格朗日方程</h3><p>一个力学系统可以由所有质点的位置和速度与时间的函数表示<br>$$L(q_1,q_2,\cdots,q_1’,q_2’,…,t)$$<br>我们称<br>$$S=\int_{t_1}^{t_2}L(q,q’,t)dt$$<br>为作用量，L为拉格朗日函数，而系统的运动满足在微小的一段时间内，作用量取最小值。即<br>$$\delta S=0$$<br>作用量的变分等于零，由欧拉公式得到<br>$$\frac{d}{dx}\frac{\partial L}{\partial q’}-\frac{\partial L}{\partial q}=0$$<br>在分析力学中称之为拉格朗日方程。经过力学和数学证明，拉格朗日函数<br>$$L=\frac{1}{2}mv^2-U(r,t)$$<br>U为相互作用能（势能），证明见《朗道力学》4-9页。<br>观察发现如果知道某力学系统的初始位置和速度作为初始条件，那么我们就能通过最小作用量原理或拉格朗日方程，确定这个系统的运动，并得到这个系统的一切运动学函数。</p>
 <h3 id="关于最小作用量原理"><a href="#关于最小作用量原理" class="headerlink" title="关于最小作用量原理"></a>关于最小作用量原理</h3><ol>
 <li>最小作用量原理和拉格朗日方程作为分析力学的工具，给我们提供了一种与牛顿力学完全不同的视角来看待力学系统，我们更多的关注位置、速度和能量而不是力、加速度和方向，在很多情况下更有利于我们分析系统的运动。</li>
 <li>对于有约束和摩擦的系统，不再是物理学系统而是一个工程学系统，我们不能直接运用最小作用量原理，在经过调整后我们才能使用。</li>
@@ -184,7 +249,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://joegyx.github.io/2017/03/04/2017-03-04_bianfenfa/" data-id="cizzks3ma0001fp4zcm2byp61" class="article-share-link" data-share="baidu" data-title="从古典变分法到分析力学">分享到</a>
+        <a data-url="http://joegyx.github.io/2017/03/04/2017-03-04_bianfenfa/" data-id="cj04njsrd0001tf4z99i8llgr" class="article-share-link" data-share="baidu" data-title="从古典变分法到分析力学">分享到</a>
       
 
       
@@ -236,7 +301,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://joegyx.github.io/2017/03/03/2017-03-03_Hello-World/" data-id="cizzks3m60000fp4zqldf3f5q" class="article-share-link" data-share="baidu" data-title="Hello World">分享到</a>
+        <a data-url="http://joegyx.github.io/2017/03/03/2017-03-03_Hello-World/" data-id="cj04njsrq0004tf4zkwrjj6wx" class="article-share-link" data-share="baidu" data-title="Hello World">分享到</a>
       
 
       
@@ -265,7 +330,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/乱七八糟/">乱七八糟</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/力学/">力学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变分法/">变分法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数值分析/">数值分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学建模/">数学建模</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最小作用量原理/">最小作用量原理</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/乱七八糟/">乱七八糟</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/力学/">力学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变分法/">变分法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数值分析/">数值分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学建模/">数学建模</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最小作用量原理/">最小作用量原理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程/">编程</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -274,7 +339,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/乱七八糟/" style="font-size: 10px;">乱七八糟</a> <a href="/tags/力学/" style="font-size: 10px;">力学</a> <a href="/tags/变分法/" style="font-size: 10px;">变分法</a> <a href="/tags/数值分析/" style="font-size: 10px;">数值分析</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数学建模/" style="font-size: 10px;">数学建模</a> <a href="/tags/最小作用量原理/" style="font-size: 10px;">最小作用量原理</a>
+      <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/乱七八糟/" style="font-size: 10px;">乱七八糟</a> <a href="/tags/力学/" style="font-size: 10px;">力学</a> <a href="/tags/变分法/" style="font-size: 10px;">变分法</a> <a href="/tags/数值分析/" style="font-size: 10px;">数值分析</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数学建模/" style="font-size: 10px;">数学建模</a> <a href="/tags/最小作用量原理/" style="font-size: 10px;">最小作用量原理</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -283,7 +348,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">2017年 03月</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">2017年 03月</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -294,6 +359,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/03/11/2017-03-11_baidushoulu/">用python向百度主动推送blog站点</a>
+          </li>
         
           <li>
             <a href="/2017/03/07/2017-03-07_chazhiyunihe/">插值与拟合</a>
